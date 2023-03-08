@@ -93,7 +93,7 @@ func (a *Log) queueworker() {
 	}
 }
 
-//берет текущую минуту
+// берет текущую минуту
 func (a *Log) minutes() {
 	for {
 		a.minute = Black(time.Now().Format("2 Jan 15:04")) //Black(time.Now().Format("15:04"))
@@ -101,9 +101,9 @@ func (a *Log) minutes() {
 	}
 }
 
-//ставит хендлер когда ловим ошибку
-//нужен чтобы обработать глобально например отправить куда нить
-//в хранилище логов
+// ставит хендлер когда ловим ошибку
+// нужен чтобы обработать глобально например отправить куда нить
+// в хранилище логов
 func (a *Log) AddHandler(handler func(Item)) {
 	a.handler = append(a.handler, handler)
 }
@@ -124,7 +124,7 @@ func (a *Log) handle(v Item) {
 	}
 }
 
-//форматирование строки [1, "nice", true] в текст "1, nice, true"
+// форматирование строки [1, "nice", true] в текст "1, nice, true"
 func (a *Log) format(v ...interface{}) string {
 	var lines []string
 	for _, s := range v {
